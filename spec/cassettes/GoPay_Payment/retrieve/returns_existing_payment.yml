@@ -1,0 +1,132 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://client_id_filtered:client_secret_filtered@testgw.gopay.cz/api/oauth2/token
+    body:
+      encoding: UTF-8
+      string: grant_type=client_credentials&scope=payment-all
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - unirest-ruby/1.1
+      Content-Length:
+      - '47'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 03 Mar 2016 14:20:18 GMT
+      Server:
+      - GOPAY
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      X-Powered-By:
+      - GOPAY
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json
+      Set-Cookie:
+      - "<SET COOKIE FILTERED OUT>"
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Cache-Control:
+      - max-age=600
+      Expires:
+      - Thu, 03 Mar 2016 14:30:18 GMT
+      Content-Length:
+      - '273'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAz3Oy3KCMACF4XfJFmcSiBLaGRdSL4gWQYRaNg5CuGkRE4iG
+        Tt+9TBfdfmfxn2/Q3i60PrWyoeAVnGnMKAMjECcJ5fz0Nw6entv3SZGQXPdr
+        zzHvuTZ2BfQXh5tUug08mhX1D2vn2kpEVanlm84ly1xcQ15H894j/Ze2j3dO
+        7uxW6CIjwrFk2Rt5Kiq/iGUwtlcTKVgUz2QyHer02ZSM8lM5tFUDoRFgNBug
+        +D+Eil7VjIeqhwk0qptY9HKNdXg0MrTNAh6yet8il31G2QZuudKTtIPWS7OA
+        EM9byy2wsH3yvJpCKbGlVXj5wR54hu/lPbYTT4o+tVJrEMcMpuDnF63YzW0m
+        AQAA
+    http_version: 
+  recorded_at: Thu, 03 Mar 2016 14:20:17 GMT
+- request:
+    method: get
+    uri: https://testgw.gopay.cz/api/payments/payment/3026370321
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Authorization:
+      - "<AUTHORIZATION FILTERED OUT>"
+      User-Agent:
+      - unirest-ruby/1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 03 Mar 2016 14:20:19 GMT
+      Server:
+      - GOPAY
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      X-Powered-By:
+      - GOPAY
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json
+      Set-Cookie:
+      - "<SET COOKIE FILTERED OUT>"
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Cache-Control:
+      - max-age=600
+      Expires:
+      - Thu, 03 Mar 2016 14:30:19 GMT
+      Content-Length:
+      - '509'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA61TTY/aMBD9Lz7zESfh81TEUlWqlq1Y9tBWlTXYJolw7Mhx
+        lmZX/PcdEwiw5dhDpMzzzJvnN+N3kgkyjYJwGI2CKKQdUoCV2jEP60qpDjFW
+        SMt0lW+kJdMm7NJgOKYxDYKYdEjpwEk8Wi2+viwfFg8eqjbsBDcsBdT5kVeX
+        zlb+Fwt+zH4+LpZrNp+tfBHkpvI40gZBh/DKohReY+L813dy5PAS3u+SNW1A
+        KbOXgv2bUZLp79uGfy7p5T7b+oyGRMgtVMrdIfmccaw7g4m5mCZzyFR799Ro
+        2TrYYBvQOwacNzduMAwKoz87xsGKS4Z2wJ33YJvZ0jENuXf+GbSwgBYpuIBL
+        8wo7/EgrhzjJ0y+pygTwXd3jb+S+OJ65+vyPV5eylVgYnKpi3Ah5pVo7W58w
+        HNWCHA4d4sAm8qjU1YU/mM3nTy/LNTkbNY4jOqLRIAr/i13n5WmipvtpoqjG
+        ytM2Sa/oEjFec+XVPT4t19/IdSIrpM0MCqU3qMClZs5gSRjQSTcIu3RyW3d+
+        Ds/r2WqNrwHbF1ZC5VJjszdw2ZVoITIfo6X47iBvV1CBTpCCl96uPausn17q
+        XFFO+/1k3ytx4Bvzt5cYXJMeNzmC/deoD+MBqtpMQjkKKR/LWIpwMBlu4wGN
+        4lHAyeED6FVyjfIDAAA=
+    http_version: 
+  recorded_at: Thu, 03 Mar 2016 14:20:17 GMT
+recorded_with: VCR 3.0.1

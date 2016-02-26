@@ -1,0 +1,132 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://client_id_filtered:client_secret_filtered@testgw.gopay.cz/api/oauth2/token
+    body:
+      encoding: UTF-8
+      string: grant_type=client_credentials&scope=payment-create
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - unirest-ruby/1.1
+      Content-Length:
+      - '50'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 03 Mar 2016 14:19:34 GMT
+      Server:
+      - GOPAY
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      X-Powered-By:
+      - GOPAY
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json
+      Set-Cookie:
+      - "<SET COOKIE FILTERED OUT>"
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Cache-Control:
+      - max-age=600
+      Expires:
+      - Thu, 03 Mar 2016 14:29:34 GMT
+      Content-Length:
+      - '272'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAz2Oy3KCMAAA/yVXnDFoeNgZD3SEOmgoWl5ycUJIWgoVDEEe
+        nf57mR563T3sfgNZl+x2lWPDwBPIGBFMgAUglLK2vf7JmY8VtVIrdmxN5lh2
+        8qKXdInwDp4sJdVboikGRY0tJloFWhWtbPWFrKzQ8V/vzOe6/UzaCfvdTjSe
+        f4BvJdzbmqYeXX42iova1+hEjNyKuRmZ27nOhqYQrL0Wc1s1IVwAwfgMPv6H
+        9og/+Fc5ph6sPZwlVFkLtMkC2eG618MIuVkVpcZwspZSGzeH44Tu01SLWwp7
+        gz1Y70b3MhsuSdw5zRqt6iEPOltPvTCiPB8+H0Wi4rF8Jxxvwc8vkfawmSYB
+        AAA=
+    http_version: 
+  recorded_at: Thu, 03 Mar 2016 14:19:33 GMT
+- request:
+    method: post
+    uri: https://testgw.gopay.cz/api/payments/payment
+    body:
+      encoding: UTF-8
+      string: '{"payer":{"allowed_payment_instruments":["BANK_ACCOUNT"],"contact":{"first_name":"John","last_name":"Doe","email":"john@example.com"}},"target":{"type":"ACCOUNT","goid":"8431713532"},"amount":10000,"currency":"CZK","order_number":"order-1","order_description":"foo","callback":{"return_url":"http://localhost","notification_url":"http://localhost/2"},"lang":"CS"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<AUTHORIZATION FILTERED OUT>"
+      User-Agent:
+      - unirest-ruby/1.1
+      Content-Length:
+      - '363'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 03 Mar 2016 14:19:35 GMT
+      Server:
+      - GOPAY
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      X-Powered-By:
+      - GOPAY
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json
+      Set-Cookie:
+      - "<SET COOKIE FILTERED OUT>"
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Cache-Control:
+      - max-age=600
+      Expires:
+      - Thu, 03 Mar 2016 14:29:34 GMT
+      Content-Length:
+      - '429'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA61STW/bMAz9Lzx7SWzlY8ipadrLCnTA0F02DAIt0Y43WTJk
+        aalX5L9PimM76Iqd6pP4TD4+PvIFKglbtsg2a7Zm2TqBBi1pxyOsvVIJGCvJ
+        cu3rnCxs+/BDCgm0Dh0FZP/lfvd0fxcRn/ML2tc22NVnNt066+Nz+IO18TFK
+        F+FLQHgb2oou0n17gHNlbPfyPwqlzJEk/zejhe13uN09PvDdfv/56+MT/JjS
+        22NVxIyeRFKBXrk3SF5nnOsGsDSTQVRjpcaJD0bT6FaP5ah/cRSin7jHQtAY
+        /dongVZOGdqhcNGDorKt4xrraPcnc9DBIIUTdGcIRh3wMyTc0DPWjaKZMDW8
+        rUpUrhveYWaiUVtjwhIVF0bSlVztbHeFnU4JOLQlnRW6rolCBrsHgz4uWbpJ
+        2Ypl72LTcDR91He/bDKosXS5oun8LKF3B2OrP+iqKx4pqxiHIcO5Yz1eg0Jd
+        hjFEGyc4cm+jnwfnmnY7n5fHWYta5uZ5VpqwsehtAOe/2TxbbvIUBa5kJgWT
+        q41cL9LlKi+yrGDLNIPTX5/WYkppAwAA
+    http_version: 
+  recorded_at: Thu, 03 Mar 2016 14:19:34 GMT
+recorded_with: VCR 3.0.1

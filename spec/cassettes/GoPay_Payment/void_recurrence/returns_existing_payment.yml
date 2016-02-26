@@ -1,0 +1,118 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://client_id_filtered:client_secret_filtered@testgw.gopay.cz/api/oauth2/token
+    body:
+      encoding: UTF-8
+      string: grant_type=client_credentials&scope=payment-all
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - unirest-ruby/1.1
+      Content-Length:
+      - '47'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 03 Mar 2016 14:22:37 GMT
+      Server:
+      - GOPAY
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      X-Powered-By:
+      - GOPAY
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json
+      Set-Cookie:
+      - "<SET COOKIE FILTERED OUT>"
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Cache-Control:
+      - max-age=600
+      Expires:
+      - Thu, 03 Mar 2016 14:32:37 GMT
+      Content-Length:
+      - '272'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAz2OwW6CMABA/6VXTACdMpZ4oIKAExRBgV5IhcJQVkiLSLfs
+        30d22PW9w3vfoG/vhGa96Ah4A1eCGWFgBnCeE86zPzlxw/N1h6nSHp9vFyeX
+        V8y/npUBGfcmGN7taqPau8CK3eWD+WqAjnLpyIXaNHtqUYFsgyvHaoQCu1R8
+        peSQhpBvF3F0oLm3M8tVMkJVZve5IKRdT3UydjUjPKuntvqqKDPASDmBj/8h
+        XdOQ2ccJlulckvRIEV5LIb84FU9g8AiSeHhaSCzn1ellC6s6b5/sPIRl3mn8
+        ZpnbQjltcFLY2DFvRi2k4REtodS2CxThRWhpLvp0ROHzJkjX4OcX2Z2GXiYB
+        AAA=
+    http_version: 
+  recorded_at: Thu, 03 Mar 2016 14:22:36 GMT
+- request:
+    method: post
+    uri: https://testgw.gopay.cz/api/payments/payment/3027321817/void-recurrence
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Authorization:
+      - "<AUTHORIZATION FILTERED OUT>"
+      User-Agent:
+      - unirest-ruby/1.1
+      Content-Length:
+      - '0'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 03 Mar 2016 14:22:38 GMT
+      Server:
+      - GOPAY
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      X-Powered-By:
+      - GOPAY
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '56'
+      Set-Cookie:
+      - "<SET COOKIE FILTERED OUT>"
+      Cache-Control:
+      - max-age=600
+      Expires:
+      - Thu, 03 Mar 2016 14:32:38 GMT
+    body:
+      encoding: UTF-8
+      string: '{"id":3027321817,"result":"FINISHED","description":null}'
+    http_version: 
+  recorded_at: Thu, 03 Mar 2016 14:22:37 GMT
+recorded_with: VCR 3.0.1
