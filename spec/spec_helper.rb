@@ -3,6 +3,11 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'gopay'
 require 'vcr'
 require 'addressable/uri'
+require 'simplecov'
+require 'coveralls'
+
+SimpleCov.formatters = [SimpleCov::Formatter::HTMLFormatter, Coveralls::SimpleCov::Formatter]
+SimpleCov.start
 
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/cassettes'
@@ -40,3 +45,14 @@ GoPay.configure do |config|
   config.client_id = 'clientid'
   config.client_secret = 'clientsecret'
 end
+
+# VCR_OPTIONS = { }
+
+# GoPay.configure do |config|
+#   config.return_host = "http://jelly.sit:3000"
+#   config.notification_host ="https://www.hlidacky-dev.com"
+#   config.gate = "https://testgw.gopay.cz"
+#   config.goid = "8431713532"
+#   config.client_id = "1947361933"
+#   config.client_secret ="xFaJ9kpu"
+# end
