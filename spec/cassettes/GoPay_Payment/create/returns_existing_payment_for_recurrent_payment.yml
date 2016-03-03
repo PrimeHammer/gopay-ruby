@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 03 Mar 2016 14:19:35 GMT
+      - Thu, 03 Mar 2016 16:17:02 GMT
       Server:
       - GOPAY
       Strict-Transport-Security:
@@ -47,27 +47,27 @@ http_interactions:
       Cache-Control:
       - max-age=600
       Expires:
-      - Thu, 03 Mar 2016 14:29:35 GMT
+      - Thu, 03 Mar 2016 16:27:02 GMT
       Content-Length:
-      - '273'
+      - '272'
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        H4sIAAAAAAAAAz2Oy3KCMAAA/yVnZwwiFDrjARvkIfEBKsrFEUjkpUCCGO30
-        38v00OvuYfcbdHVJ7ufu1RDwCWJyYYSBEbgkCeH8/CcHvj3MWyr6k2wipvmc
-        GEpe8SDbFdKHC+34aFXeXkVqJ+0mYlXTF554Vi2ztaMLl1ahUuqoijW1iWi9
-        v5nKPFTSErrO/a5gkXtTsTq62A+FK9/q2VAnoskZ4ed8aEsahCPACB1A9j+0
-        n1pjD4699sIqbbnOThJHx0WArF26umoGxBz1D7OLZd3GNIrfz+2CWoeNHjb+
-        aYpf4XjzhWyX94WUBBCv285Ycqjwfn5L5NQxnEJOJ49rBN8tnoGfX+tNckcm
-        AQAA
+        H4sIAAAAAAAAAz2OTW+CMABA/0uvmvAxBLbEQyV8CIopFgUvBlhZhVlJKUK3
+        7L+P7LDre4f3voF4tIRdhewIeAMlKTjhYAmKqiJ9f/2TM28i2bVHPW48U0no
+        aO4f+G5xSVqItFeMjR0fcKg0STIIXT9+llWLjei+gr3TnbdOuAgdo2ad/Djh
+        3oVxepcvjYyZ46MjUtr9XhelZu20VX5w2/VcJ1N346S/3ua2ZqvqEnBSz4D+
+        D5F0GLGJ8DOw415MuXLG2xFqxZT53HOpsMkTLkyO/UymKdskA8zKi3hmam0H
+        0ZeKGFU4zSHaRIf8pFo1vXSpNxiuXVA4Qst7t5HLpiBnj3QNfn4BcfIz/iYB
+        AAA=
     http_version: 
-  recorded_at: Thu, 03 Mar 2016 14:19:34 GMT
+  recorded_at: Thu, 03 Mar 2016 16:17:01 GMT
 - request:
     method: post
     uri: https://testgw.gopay.cz/api/payments/payment
     body:
       encoding: UTF-8
-      string: '{"payer":{"allowed_payment_instruments":["BANK_ACCOUNT"],"contact":{"first_name":"John","last_name":"Doe","email":"john@example.com"}},"target":{"type":"ACCOUNT","goid":"8431713532"},"amount":10000,"currency":"CZK","order_number":"order-1","order_description":"foo","callback":{"return_url":"http://localhost","notification_url":"http://localhost/2"},"lang":"CS","recurrence":{"recurrence_cycle":"WEEK","recurrence_period":10,"recurrence_date_to":"2018-01-01"}}'
+      string: '{"payer":{"allowed_payment_instruments":["BANK_ACCOUNT"],"contact":{"first_name":"John","last_name":"Doe","email":"john@example.com"}},"amount":10000,"currency":"CZK","order_number":"order-1","order_description":"foo","lang":"CS","callback":{"return_url":"http://localhost","notification_url":"http://localhost/2"},"recurrence":{"recurrence_cycle":"WEEK","recurrence_period":10,"recurrence_date_to":"2018-01-01"},"target":{"type":"ACCOUNT","goid":"8431713532"}}'
     headers:
       Accept:
       - application/json
@@ -87,7 +87,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 03 Mar 2016 14:19:35 GMT
+      - Thu, 03 Mar 2016 16:17:03 GMT
       Server:
       - GOPAY
       Strict-Transport-Security:
@@ -111,23 +111,23 @@ http_interactions:
       Cache-Control:
       - max-age=600
       Expires:
-      - Thu, 03 Mar 2016 14:29:35 GMT
+      - Thu, 03 Mar 2016 16:27:02 GMT
       Content-Length:
-      - '482'
+      - '483'
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        H4sIAAAAAAAAA61TUW+bMBD+L36mCeCsNHlalvLSSp3WtarUabIO2xBWYyNj
-        lrIq/72+ECDtqj0N8eD7fHf+/N3nF1IKsqJhnJzTc0qXAanBSu0YwrpVKiDG
-        CmmZbqtMWrLqw7OIBKRx4KRHNrfp+i69RKTN2BHta2voqkM33Tjb4nLYgcq0
-        GEWh/wLCW+uP5R22e7wmh0o87uVfLZQyOynY3xkNWf0gX9Y312y92Xy9v7kj
-        P6f0ZlfmmNE3ETKHVrkPmrzPONQNYGEmgWQFpRpvvDVajmr1WAb6iQHn/Y17
-        zAe10e914mDFlKEdcIca5KVtHNNQodxXZqu9QAom6NJIMvIgv3zCZ/kMVa3k
-        jJuKfMyKl64b1v7OUo7cauOHqBg3Qp7Q1c52J9h+HxAHtpAHhq6rkcgg9yDQ
-        xYJGSUQ/0fi/yDSYpo/604+T9GysPLpIIqMpYrzjCtk9pCla62SnlrY0Al34
-        BhbewswZXxKH0cVZGPn/beHg/dv02336Hd3vCdRWQuu2xpZ/wJUntIUoMfaa
-        +tcF1Wg+BbrwTXiDgu1Ya3F8W+fqZjWfF7tZA1pk5nlWGG8QHKUH57/pXOQi
-        i/mSCkgWIY2yRZLnSy6iOEyymIol2b8CldQwb9gDAAA=
+        H4sIAAAAAAAAA61TTY+bMBD9Lz6zCR8JITk1zXLpSlt1u6tKrSprsAdCa2xk
+        TLN0lf9eOwTIfmhPRRw8zzPj5zfPT6TkZBP54SpeLJbh2iM1aJSGOli2QnhE
+        aY6ayrbKUJNNH14FxCONAYMW2d2l2/v02iFtRs9oX1tDV526ycbo1i2HHahU
+        66LAt59HWKvtsaxz7b7fkFOlO+7pvRZCqANy+jqjIZsf5OP29oZud7vPD7f3
+        5OeU3hzK3GX0TTjm0ArzRpOXGae6ASzUJBBWUIrxxnslcVSrxzKQvykw1t+4
+        x2xQK/lSJwaaTxnSADNOg7zUjaESKif3J7WXViABE3StkIw8yC+b8AEfoaoF
+        zpiqyNusWGm6YW3vjDhyq5UdoqBMcbygK43uLrDj0SMGdIEnhqarHZFB7kGg
+        ZBEFqyBaRuF/kWkwTR/1p58nadloPLsIHaMpoqxjwrH7lqbOWhc7NepScefC
+        ZzC3FqZG2ZLQD5IrP7D/88LB+3fpl4f0q3O/JVBrhNbslS7/gikvaHNeuthq
+        al8XVKP5BMjCNmGNE+xAW+3GtzembjbzeXGYNSB5ph5nhbIGcaO04PxPNA/X
+        yRKyOE7yLIvzZBHGywAitl7hyo/WISfHf3PV4fTYAwAA
     http_version: 
-  recorded_at: Thu, 03 Mar 2016 14:19:34 GMT
+  recorded_at: Thu, 03 Mar 2016 16:17:01 GMT
 recorded_with: VCR 3.0.1
