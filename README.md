@@ -13,7 +13,8 @@ Unofficial wrapper for GoPay REST API
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'gopay-ruby'
+gem 'gopay-ruby', require: 'gopay'
+
 ```
 
 And then execute:
