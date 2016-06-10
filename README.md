@@ -2,10 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/gopay-ruby.png)](http://badge.fury.io/rb/gopay-ruby)
 [![Build Status](https://travis-ci.org/PrimeHammer/gopay-ruby.png?branch=master)](https://travis-ci.org/PrimeHammer/gopay-ruby)
-[![Dependency Status](https://gemnasium.com/PrimeHammer/gopay-ruby.png)](https://gemnasium.com/PrimeHammer/gopay-ruby)
 [![Code Climate](https://codeclimate.com/github/PrimeHammer/gopay-ruby.png)](https://codeclimate.com/github/PrimeHammer/gopay-ruby)
-[![Coverage Status](https://coveralls.io/repos/PrimeHammer/gopay-ruby/badge.svg?branch=master&service=github)](https://coveralls.io/github/PrimeHammer/gopay-ruby?branch=master)
-
 The GoPay Ruby provides access to the GoPay REST API for Ruby language applications.
 
 It automatically generate access tokens. Easy configuration through initializer.
@@ -49,7 +46,7 @@ end
 ## Usage
 
 ### Establishment of payment
-Before we can initiate gateway, we need to establish the payment. This will return gw_url, which you can initiate to inline or redirect payment gateway.
+Before we can initiate gateway, we need to establish the payment. This will return gw_url, which you can initiate to inline or redirect payment gatewa
 
 ```ruby
 GoPay::Payment.create payment_data
@@ -102,6 +99,8 @@ The functionality allows you to cancel recurrence of previously created recurrin
 ```ruby
 GoPay::Payment.void_recurrence gopay_id
 ```
+## Dealing with errors
+
 
 ## Contributing
 
