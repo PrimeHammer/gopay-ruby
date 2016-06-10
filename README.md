@@ -56,25 +56,48 @@ GoPay::Payment.create payment_data
 
 ```ruby
 {
-  "payer": {  "allowed_payment_instruments": ["BANK_ACCOUNT"],
-              "contact":{"first_name": "",
-                         "last_name": "",
-                         "email": ""
-                        }
-            },
-  "target": {
-              "type": "ACCOUNT",
-              "goid": "8123456789"
-            },
-  "amount": "1000",
-  "currency": "CZK",
-  "order_number": "001",
-  "order_description": "description001",
-  "callback":{
-              "return_url": "url.for.return",
-              "notification_url": "url.for.notification"
-            },
-  "lang": "en"
+  "payer":{"allowed_payment_instruments": ["BANK_ACCOUNT"],
+            "contact":{"first_name": "John",
+                       "last_name": "Doe",
+                       "email": "john.doe@example.com"
+                      }
+          },
+  "target":{"type": "ACCOUNT",
+            "goid": "8123456789"
+           },
+  "amount":"1000",
+  "currency":"CZK",
+  "order_number":"001",
+  "order_description":"description001",
+  "callback":{"return_url":"url.for.return",
+              "notification_url":"url.for.notification"
+             },
+  "lang":"en"
+}
+```
+
+### Create a Payment response example
+This is a basic example of response hash, for more complex examples visit [GoPay API docs](https://doc.gopay.com).
+```ruby
+{
+  "id":3000006529,
+  "order_number":"001",
+  "state":"CREATED",
+  "amount":1000,"currency":"CZK",
+  "payer":{"allowed_payment_instruments":["BANK_ACCOUNT"],
+           "contact": {"first_name":"John",
+                       "last_name":"Doe",
+                       "email":"john.doe@example.com",
+                      }
+          },
+  "target":{"type":"ACCOUNT",
+            "goid":8123456789
+           },
+  "additional_params":[{"name":"invoicenumber",
+                        "value":"2015001003"
+                      }],
+  "lang":"en",
+  "gw_url":" https://gw.sandbox.gopay.com/gw/v3/bCcvmwTKK5hrJx2aGG8ZnFyBJhAvF"
 }
 ```
 
@@ -111,6 +134,9 @@ rescue GoPay::Error => exception
   log_gopay_error exception
 end
 ```
+
+## Documentation
+See the official [GoPay API docs](https://doc.gopay.com).
 
 ## Contributing
 
