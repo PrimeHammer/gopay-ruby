@@ -49,6 +49,7 @@ end
 ## Usage
 
 ### Establishment of payment
+Before we can initiate gateway, we need to establish the payment. This will return gw_url, which you can initiate to inline or redirect payment gateway.
 
 ```ruby
 GoPay::Payment.create payment_data
