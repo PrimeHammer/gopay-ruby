@@ -17,7 +17,7 @@ module GoPay
 
     response = Unirest.send(method, GoPay.gate+path, headers: { "Accept" => "application/json", "Content-Type" => content_type, "Authorization" => "Bearer #{token}" }, parameters: body_parameters)
 
-    unless response.code == 200 || response.code == 342
+    unless response.code == 200
       raise GoPay::Error.handle_gopay_error(response)
     end
 
