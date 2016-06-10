@@ -3,6 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/gopay-ruby.png)](http://badge.fury.io/rb/gopay-ruby)
 [![Build Status](https://travis-ci.org/PrimeHammer/gopay-ruby.png?branch=master)](https://travis-ci.org/PrimeHammer/gopay-ruby)
 [![Code Climate](https://codeclimate.com/github/PrimeHammer/gopay-ruby.png)](https://codeclimate.com/github/PrimeHammer/gopay-ruby)
+
 The GoPay Ruby provides access to the GoPay REST API for Ruby language applications.
 
 It automatically generate access tokens. Easy configuration through initializer.
