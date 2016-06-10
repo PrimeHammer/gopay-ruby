@@ -45,7 +45,7 @@ end
 
 ## Usage
 
-### Creating Payment
+### Create a Payment
 Before charging a user, we need to create a new payment. This will return a hash including a URL which you can use to popup payment or redirect the user to the GoPay payment page.
 
 ```ruby
