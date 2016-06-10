@@ -101,7 +101,16 @@ The functionality allows you to cancel recurrence of previously created recurrin
 GoPay::Payment.void_recurrence gopay_id
 ```
 ## Dealing with errors
+Errors are raised as GoPay::Error. Structure is error_code:error_body.
+You can easily catch errors in your models as shown below.
 
+```ruby
+begin
+  response = GoPay::Payment.refund(gopay_id, gopay_amount)
+rescue GoPay::Error => exception
+  log_gopay_error exception
+end
+```
 
 ## Contributing
 
