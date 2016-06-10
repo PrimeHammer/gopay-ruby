@@ -4,11 +4,10 @@
 [![Build Status](https://travis-ci.org/PrimeHammer/gopay-ruby.png?branch=master)](https://travis-ci.org/PrimeHammer/gopay-ruby)
 [![Code Climate](https://codeclimate.com/github/PrimeHammer/gopay-ruby.png)](https://codeclimate.com/github/PrimeHammer/gopay-ruby)
 
-The GoPay Ruby provides access to the GoPay REST API for Ruby language applications.
+The GoPay Ruby allows Ruby applications to access to the GoPay REST API.
 
-It automatically generate access tokens. Easy configuration through initializer.
-
-
+## Benefits
+It does OAuth authorization under the hood automatically. Easy configuration through initializer.
 
 ## Installation
 
@@ -28,7 +27,7 @@ Or install it yourself as:
     $ gem install gopay-ruby
 
 ## Configure
-Create an initializer:
+The Gem is framework agnostic. However, if you use Rails, put the initializer in Rails config dir:
 ```ruby
 config/initializers/gopay.rb
 ```
@@ -46,8 +45,8 @@ end
 
 ## Usage
 
-### Establishment of payment
-Before we can initiate gateway, we need to establish the payment. This will return gw_url, which you can initiate to inline or redirect payment gatewa
+### Creating Payment
+Before charging a user, we need to create a new payment. This will return a hash including a URL which you can use to popup payment or redirect the user to the GoPay payment page.
 
 ```ruby
 GoPay::Payment.create payment_data
@@ -79,29 +78,30 @@ GoPay::Payment.create payment_data
 }
 ```
 
-### Retrieve the payment
-If you want to return payment object from GoPay REST API.
+### Retrieve the Payment
+If you want to return a payment object from GoPay REST API.
 
 ```ruby
 GoPay::Payment.retrieve gopay_id
 ```
 
 ### Refund of the payment
-The functionality which allows recovering funds for already made payment to the customer.
-You can use refund in two ways. First is full refund payment and the other is partial refund. Both based on amount parameter.
+This functionality allows you to refund payment paid by a customer.
+You can use the refund in two ways. First option is a full refund payment and the other one is a partial refund. Both based on `amount` parameter.
 
 ```ruby
 GoPay::Payment.refund gopay_id, amount
 ```
 
 ### Cancellation of the recurring payment
-The functionality allows you to cancel recurrence of previously created recurring payment.
+The functionality allows you to cancel recurrence of a previously created recurring payment.
 
 ```ruby
 GoPay::Payment.void_recurrence gopay_id
 ```
+
 ## Dealing with errors
-Errors are raised as GoPay::Error. Structure is error_code:error_body.
+Errors are raised as GoPay::Error. The error contains error code error body returned by GoPay API.
 You can easily catch errors in your models as shown below.
 
 ```ruby
