@@ -6,7 +6,11 @@
 [![Code Climate](https://codeclimate.com/github/PrimeHammer/gopay-ruby.png)](https://codeclimate.com/github/PrimeHammer/gopay-ruby)
 [![Coverage Status](https://coveralls.io/repos/PrimeHammer/gopay-ruby/badge.svg?branch=master&service=github)](https://coveralls.io/github/PrimeHammer/gopay-ruby?branch=master)
 
-Unofficial wrapper for GoPay REST API
+The GoPay Ruby provides access to the GoPay REST API for Ruby language applications.
+
+It automatically generate access tokens. Easy configuration through initializer.
+
+
 
 ## Installation
 
@@ -25,12 +29,77 @@ Or install it yourself as:
 
     $ gem install gopay-ruby
 
-## Usage
-
-### Retrieve a payment
+## Configure
+Create an initializer:
+```ruby
+config/initializers/gopay.rb
+```
 
 ```ruby
-GoPay::Payment.retrieve 35345534
+GoPay.configure do |config|
+  config.goid = GOPAY_ID
+  config.client_id = GOPAY_CLIENT_ID
+  config.client_secret = GOPAY_SECRET
+  config.return_host = RETURN_HOST_URL
+  config.notification_host = NOTIFICATION_HOST_URL
+  config.gate = GATE_URL
+end
+```
+
+## Usage
+
+### Establishment of payment
+
+```ruby
+GoPay::Payment.create payment_data
+```
+
+### payment_data example
+
+```ruby
+{
+  "payer": {  "allowed_payment_instruments": ["BANK_ACCOUNT"],
+              "contact":{"first_name": "",
+                         "last_name": "",
+                         "email": ""
+                        }
+            },
+  "target": {
+              "type": "ACCOUNT",
+              "goid": "8123456789"
+            },
+  "amount": "1000",
+  "currency": "CZK",
+  "order_number": "001",
+  "order_description": "description001",
+  "callback":{
+              "return_url": "url.for.return",
+              "notification_url": "url.for.notification"
+            },
+  "lang": "en"
+}
+```
+
+### Retrieve the payment
+If you want to return payment object from GoPay REST API.
+
+```ruby
+GoPay::Payment.retrieve gopay_id
+```
+
+### Refund of the payment
+The functionality which allows recovering funds for already made payment to the customer.
+You can use refund in two ways. First is full refund payment and the other is partial refund. Both based on amount parameter.
+
+```ruby
+GoPay::Payment.refund gopay_id, amount
+```
+
+### Cancellation of the recurring payment
+The functionality allows you to cancel recurrence of previously created recurring payment.
+
+```ruby
+GoPay::Payment.void_recurrence gopay_id
 ```
 
 ## Contributing
