@@ -46,7 +46,7 @@ end
 ## Usage
 
 ### Create a Payment
-Before charging a user, we need to create a new payment. This will return a hash including a URL which you can use to popup payment or redirect the user to the GoPay payment page.
+Before charging a user, we need to create a new payment. This will return a hash including a URL which you can use to popup payment modal or redirect the user to the GoPay payment page.
 
 ```ruby
 GoPay::Payment.create payment_data
@@ -136,7 +136,7 @@ end
 ```
 
 ## Documentation
-See the official [GoPay API docs](https://doc.gopay.com).
+Parameters for all GoPay methods follow the official documentation. For further explanation please visit [GoPay API docs](https://doc.gopay.com).
 
 ## Contributing
 
