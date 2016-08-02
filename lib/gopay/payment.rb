@@ -19,5 +19,10 @@ module GoPay
     def self.refund(id, amount)
       GoPay.request :post, "/api/payments/payment/#{id}/refund", body_parameters: { amount: amount }
     end
+
+    def self.create_recurrence(original_payment_id, recurring_payment_data)
+      GoPay.request :post, "/api/payments/payment/#{original_payment_id}/create-recurrence", body_parameters: recurring_payment_data
+    end
+
   end
 end
