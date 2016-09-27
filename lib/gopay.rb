@@ -36,7 +36,11 @@ module GoPay
     end
 
     def get_content_type(path)
-      path == '/api/payments/payment' ? 'application/json' : 'application/x-www-form-urlencoded'
+      if (path == '/api/payments/payment') || (path =~ /create-recurrence/)
+        'application/json'
+      else
+        'application/x-www-form-urlencoded'
+      end
     end
 
     # payment-create - for new payment
