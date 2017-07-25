@@ -1,7 +1,7 @@
 module GoPay
   class Version
     MAJOR = 0
-    MINOR = 2
+    MINOR = 3
     PATCH = 0
 
     class << self
