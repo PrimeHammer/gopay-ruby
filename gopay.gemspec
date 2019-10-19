@@ -8,7 +8,6 @@ Gem::Specification.new do |spec|
   spec.version       = GoPay::Version
   spec.authors       = ["David Hrachovy & Ondrej Zadnik"]
   spec.email         = ["david.hrachovy@gmail.com"]
-
   spec.summary       = %q{Unofficial wrapper for GoPay REST API}
   spec.description   = %q{Unofficial wrapper for GoPay REST API}
   spec.homepage      = "https://github.com/PrimeHammer/gopay-ruby"
