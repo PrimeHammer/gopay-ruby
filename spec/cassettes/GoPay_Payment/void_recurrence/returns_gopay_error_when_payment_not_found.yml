@@ -2,34 +2,38 @@
 http_interactions:
 - request:
     method: post
-    uri: https://client_id_filtered:client_secret_filtered@testgw.gopay.cz/api/oauth2/token
+    uri: https://testgw.gopay.cz/api/oauth2/token
     body:
       encoding: UTF-8
       string: grant_type=client_credentials&scope=payment-all
     headers:
       Accept:
       - application/json
-      Accept-Encoding:
-      - gzip
+      User-Agent:
+      - rest-client/2.1.0 (darwin17.7.0 x86_64) ruby/2.5.3p105
       Content-Type:
       - application/x-www-form-urlencoded
-      User-Agent:
-      - unirest-ruby/1.1
+      Authorization:
+      - "<AUTHORIZATION FILTERED OUT>"
       Content-Length:
       - '47'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - testgw.gopay.cz
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 03 Mar 2016 14:22:38 GMT
+      - Sat, 19 Oct 2019 13:41:36 GMT
       Server:
-      - GOPAY
+      - Apache
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains; preload
-      X-Powered-By:
-      - GOPAY
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, max-age=600
       X-Xss-Protection:
       - 1; mode=block
       X-Frame-Options:
@@ -42,58 +46,49 @@ http_interactions:
       - "<SET COOKIE FILTERED OUT>"
       Vary:
       - Accept-Encoding
-      Content-Encoding:
-      - gzip
-      Cache-Control:
-      - max-age=600
       Expires:
-      - Thu, 03 Mar 2016 14:32:38 GMT
+      - Sat, 19 Oct 2019 13:51:35 GMT
       Content-Length:
-      - '274'
+      - '270'
     body:
       encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAAAz2Oy26CQAAA/2WvmLhQHksTD6wKIkhRWaq9EMBlgUJ5KQ+b
-        /ntJD73OHGa+wb36pF/BfaopeAURDVvaggUI45h2XfAnZ/7Q/CZiUWMgbiil
-        dU58d226t2ngxKVF9CEKVVPslzLWTdtjrFZHu3TcC1EyvxREsbgkReXkoSdf
-        bSaku/5MRlTgUJW97V0ylre4gnuiw3clgau5Tsc6a2kXZHObRxAuQEuTGaT/
-        Q5D3qbRXjw+ElYzfP57WxD2jy1GIoNo/h0pAH90pkWNlFJpNPjEhzuXDxsbY
-        cnliOrGWXhlvGYqmnbEDd8eh8XSmcRsHlWzw0i3dbV8k+IYJOqzAzy+Rdrfp
-        JgEAAA==
+      string: '{"token_type":"bearer","access_token":"bK1oEFFSE5p5Nu0B0NHf25x7PZC9xwSlZz4QfLcHFx1qThJm/X0M8HEbcT2KmZoZe9U6AGPtQZ8OIOXXytlKHaZuwwcQJ8iaMtZG4c94Kns=","expires_in":1800,"refresh_token":"nGp2WrNPR3wMZ5mkoh4CIQyTXv5J2OpzGSIsAyNm5n9R8lCDS8ptvaeLgmxFY+GKM1C3mWQlDmABy9ntRAtCE6TvbtVnTDYniwswti7kYTs="}'
     http_version: 
-  recorded_at: Thu, 03 Mar 2016 14:22:37 GMT
+  recorded_at: Sat, 19 Oct 2019 13:41:36 GMT
 - request:
     method: post
     uri: https://testgw.gopay.cz/api/payments/payment/100/void-recurrence
     body:
-      encoding: ASCII-8BIT
+      encoding: US-ASCII
       string: ''
     headers:
       Accept:
       - application/json
-      Accept-Encoding:
-      - gzip
+      User-Agent:
+      - rest-client/2.1.0 (darwin17.7.0 x86_64) ruby/2.5.3p105
       Content-Type:
       - application/x-www-form-urlencoded
       Authorization:
       - "<AUTHORIZATION FILTERED OUT>"
-      User-Agent:
-      - unirest-ruby/1.1
       Content-Length:
       - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - testgw.gopay.cz
   response:
     status:
       code: 409
       message: Conflict
     headers:
       Date:
-      - Thu, 03 Mar 2016 14:22:38 GMT
+      - Sat, 19 Oct 2019 13:41:36 GMT
       Server:
-      - GOPAY
+      - Apache
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains; preload
-      X-Powered-By:
-      - GOPAY
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
       X-Xss-Protection:
       - 1; mode=block
       X-Frame-Options:
@@ -103,12 +98,13 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '203'
+      - '166'
       Set-Cookie:
       - "<SET COOKIE FILTERED OUT>"
     body:
       encoding: UTF-8
-      string: '{"date_issued":"2016-03-03T15:22:38.893+0100","errors":[{"scope":"G","field":null,"error_code":340,"error_name":"PAYMENT_RECURRENCE_FAILED","message":"api.PAYMENT_RECURRENCE_FAILED","description":null}]}'
+      string: '{"date_issued":"2019-10-19T15:41:36.346+0200","errors":[{"scope":"G","error_code":340,"error_name":"PAYMENT_RECURRENCE_FAILED","message":"Recurring
+        payment failed"}]}'
     http_version: 
-  recorded_at: Thu, 03 Mar 2016 14:22:37 GMT
-recorded_with: VCR 3.0.1
+  recorded_at: Sat, 19 Oct 2019 13:41:36 GMT
+recorded_with: VCR 5.0.0

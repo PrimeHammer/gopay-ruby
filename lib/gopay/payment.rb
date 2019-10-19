@@ -1,6 +1,3 @@
-require 'unirest'
-require 'gopay/error'
-
 module GoPay
   class Payment
     
