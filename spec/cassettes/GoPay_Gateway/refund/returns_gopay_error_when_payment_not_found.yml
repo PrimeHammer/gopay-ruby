@@ -27,7 +27,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 19 Oct 2019 13:34:27 GMT
+      - Sat, 19 Oct 2019 13:27:03 GMT
       Server:
       - Apache
       Strict-Transport-Security:
@@ -47,20 +47,20 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Expires:
-      - Sat, 19 Oct 2019 13:44:27 GMT
+      - Sat, 19 Oct 2019 13:37:02 GMT
       Content-Length:
-      - '274'
+      - '272'
     body:
       encoding: ASCII-8BIT
-      string: '{"token_type":"bearer","access_token":"5Z06kRCPmdCKe7SsP3bvxocrLxBmq4jVX4I5YTUTPudYjcFP7uNbraE9DIsvkfuoWw8qCnJ4P8TjBMxy8t9WMh+r7QhbmN5W+KWjOK3VA68=","expires_in":1800,"refresh_token":"nyY8X3GO/DVp7AQFG1K07YFXjxOzozYLzha5tJ7QwMnvFm4gXJPThS2rYzXWvIQTj4Ku3O5WehPmp1RHtT9MN48F4pRoRfl/LmYVCIBYDO0="}'
+      string: '{"token_type":"bearer","access_token":"i17vPYovs35pICatxguD00dz0tLsqJIGI5psTNGR0y3Rh0EqMmPtnXGTI6sgSzkwTgYyUsWyBV5RnFm63mwP5Z0kMaBh/tPIdf75WYe4LdU=","expires_in":1800,"refresh_token":"gt2/XaSzQo7e3KfKqRwVIHwRhdBQmGMH2jplN0RU7crp4uDq04PR/RDqcrmlLFC4U+KRDefg4FYg3rVrt/yxIEHunCUXj7OKIcNxU4ynBFA="}'
     http_version: 
-  recorded_at: Sat, 19 Oct 2019 13:34:27 GMT
+  recorded_at: Sat, 19 Oct 2019 13:27:03 GMT
 - request:
-    method: get
-    uri: https://testgw.gopay.cz/api/payments/payment/100
+    method: post
+    uri: https://testgw.gopay.cz/api/payments/payment/100/refund
     body:
       encoding: US-ASCII
-      string: ''
+      string: amount=100
     headers:
       Accept:
       - application/json
@@ -71,18 +71,18 @@ http_interactions:
       Authorization:
       - "<AUTHORIZATION FILTERED OUT>"
       Content-Length:
-      - '0'
+      - '10'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Host:
       - testgw.gopay.cz
   response:
     status:
-      code: 404
-      message: Not Found
+      code: 409
+      message: Conflict
     headers:
       Date:
-      - Sat, 19 Oct 2019 13:34:27 GMT
+      - Sat, 19 Oct 2019 13:27:03 GMT
       Server:
       - Apache
       Strict-Transport-Security:
@@ -98,13 +98,13 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '152'
+      - '149'
       Set-Cookie:
       - "<SET COOKIE FILTERED OUT>"
     body:
       encoding: UTF-8
-      string: '{"date_issued":"2019-10-19T15:34:27.452+0200","errors":[{"scope":"G","error_code":304,"error_name":"PAYMENT_NOT_FOUND","message":"Payment
-        not found."}]}'
+      string: '{"date_issued":"2019-10-19T15:27:03.132+0200","errors":[{"scope":"F","field":"id","error_code":111,"error_name":"INVALID","message":"Wrong
+        value."}]}'
     http_version: 
-  recorded_at: Sat, 19 Oct 2019 13:34:27 GMT
+  recorded_at: Sat, 19 Oct 2019 13:27:03 GMT
 recorded_with: VCR 5.0.0

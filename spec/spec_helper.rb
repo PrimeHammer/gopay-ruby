@@ -1,8 +1,12 @@
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require 'simplecov'
+require 'coveralls'
+SimpleCov.start
+Coveralls.wear!
 
-require 'gopay'
+require 'dotenv/load'
 require 'vcr'
 require 'addressable/uri'
+require 'gopay'
 
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/cassettes'
@@ -28,15 +32,5 @@ VCR.configure do |config|
   end
 end
 
-VCR_OPTIONS = { :match_requests_on => [:host, :path, :query] }
+VCR_OPTIONS = { match_requests_on: [:host, :path, :query], preserve_exact_body_bytes: false, decode_compressed_response: true }
 # we cannot use default :uri matcher because the secret is in the URI https://23423423:secret@testgw.gopay.cz/api/oauth2/token
-# TODO add :body
-
-GoPay.configure do |config|
-  config.return_host = 'localhost'
-  config.notification_host = 'localhost'
-  config.gate = 'https://testgw.gopay.cz'
-  config.goid = 'goid'
-  config.client_id = 'clientid'
-  config.client_secret = 'clientsecret'
-end

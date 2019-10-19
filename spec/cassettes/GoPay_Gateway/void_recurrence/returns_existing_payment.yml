@@ -27,7 +27,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 19 Oct 2019 13:34:27 GMT
+      - Sat, 19 Oct 2019 13:27:03 GMT
       Server:
       - Apache
       Strict-Transport-Security:
@@ -47,17 +47,17 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Expires:
-      - Sat, 19 Oct 2019 13:44:27 GMT
+      - Sat, 19 Oct 2019 13:37:03 GMT
       Content-Length:
-      - '274'
+      - '272'
     body:
       encoding: ASCII-8BIT
-      string: '{"token_type":"bearer","access_token":"5Z06kRCPmdCKe7SsP3bvxocrLxBmq4jVX4I5YTUTPudYjcFP7uNbraE9DIsvkfuoWw8qCnJ4P8TjBMxy8t9WMh+r7QhbmN5W+KWjOK3VA68=","expires_in":1800,"refresh_token":"nyY8X3GO/DVp7AQFG1K07YFXjxOzozYLzha5tJ7QwMnvFm4gXJPThS2rYzXWvIQTj4Ku3O5WehPmp1RHtT9MN48F4pRoRfl/LmYVCIBYDO0="}'
+      string: '{"token_type":"bearer","access_token":"CnCyepDbxO5Hbasp4N2doMfqhYpedXPqtZVwZ5DG0dYGh020BvXmpCSsUPpizlRW6hGjlJ4EnFI+BNEPzLfuMzS5iX+6c4AEko2B+bUR3qk=","expires_in":1800,"refresh_token":"XSRU53IkzBwiBQzl6NQdaTCqokP6A/F2WWCiYQltYa5IcgW4z+zvDWRyVBnNftnimFyd1dLDMp3LMCjSxv8iwe0xM27vsRLmnF9VPdopbiQ="}'
     http_version: 
-  recorded_at: Sat, 19 Oct 2019 13:34:27 GMT
+  recorded_at: Sat, 19 Oct 2019 13:27:03 GMT
 - request:
-    method: get
-    uri: https://testgw.gopay.cz/api/payments/payment/100
+    method: post
+    uri: https://testgw.gopay.cz/api/payments/payment/3090066941/void-recurrence
     body:
       encoding: US-ASCII
       string: ''
@@ -78,17 +78,17 @@ http_interactions:
       - testgw.gopay.cz
   response:
     status:
-      code: 404
-      message: Not Found
+      code: 200
+      message: OK
     headers:
       Date:
-      - Sat, 19 Oct 2019 13:34:27 GMT
+      - Sat, 19 Oct 2019 13:27:03 GMT
       Server:
       - Apache
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains; preload
       Cache-Control:
-      - no-cache, no-store, must-revalidate
+      - no-cache, no-store, must-revalidate, max-age=600
       X-Xss-Protection:
       - 1; mode=block
       X-Frame-Options:
@@ -98,13 +98,14 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '152'
+      - '37'
       Set-Cookie:
       - "<SET COOKIE FILTERED OUT>"
+      Expires:
+      - Sat, 19 Oct 2019 13:37:03 GMT
     body:
       encoding: UTF-8
-      string: '{"date_issued":"2019-10-19T15:34:27.452+0200","errors":[{"scope":"G","error_code":304,"error_name":"PAYMENT_NOT_FOUND","message":"Payment
-        not found."}]}'
+      string: '{"id":3090066941,"result":"FINISHED"}'
     http_version: 
-  recorded_at: Sat, 19 Oct 2019 13:34:27 GMT
+  recorded_at: Sat, 19 Oct 2019 13:27:03 GMT
 recorded_with: VCR 5.0.0

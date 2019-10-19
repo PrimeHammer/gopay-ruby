@@ -27,7 +27,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 19 Oct 2019 13:34:27 GMT
+      - Sat, 19 Oct 2019 13:12:33 GMT
       Server:
       - Apache
       Strict-Transport-Security:
@@ -47,14 +47,14 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Expires:
-      - Sat, 19 Oct 2019 13:44:27 GMT
+      - Sat, 19 Oct 2019 13:22:33 GMT
       Content-Length:
-      - '274'
+      - '272'
     body:
       encoding: ASCII-8BIT
-      string: '{"token_type":"bearer","access_token":"5Z06kRCPmdCKe7SsP3bvxocrLxBmq4jVX4I5YTUTPudYjcFP7uNbraE9DIsvkfuoWw8qCnJ4P8TjBMxy8t9WMh+r7QhbmN5W+KWjOK3VA68=","expires_in":1800,"refresh_token":"nyY8X3GO/DVp7AQFG1K07YFXjxOzozYLzha5tJ7QwMnvFm4gXJPThS2rYzXWvIQTj4Ku3O5WehPmp1RHtT9MN48F4pRoRfl/LmYVCIBYDO0="}'
+      string: '{"token_type":"bearer","access_token":"l6NUrVG9CP83bbjFf4LqQwDW19DvoHykQhfAybajSKWlKQljm1igHUgdZc9oMYIkjphTqV9ULBYbBko8/FDin0AeGRE6KK1cN8a1GNMe2Gg=","expires_in":1800,"refresh_token":"jIb58aRnwkYR4E131G37kJon/E6fV2JmURb8gXA2oypEp9GhTRfV+9QszbOD1xJodrCDQzWFM51rOxT5Fr11vh/CEHN5Tnz6kiOpg3eP57g="}'
     http_version: 
-  recorded_at: Sat, 19 Oct 2019 13:34:27 GMT
+  recorded_at: Sat, 19 Oct 2019 13:12:34 GMT
 - request:
     method: get
     uri: https://testgw.gopay.cz/api/payments/payment/100
@@ -82,7 +82,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Sat, 19 Oct 2019 13:34:27 GMT
+      - Sat, 19 Oct 2019 13:12:34 GMT
       Server:
       - Apache
       Strict-Transport-Security:
@@ -103,8 +103,8 @@ http_interactions:
       - "<SET COOKIE FILTERED OUT>"
     body:
       encoding: UTF-8
-      string: '{"date_issued":"2019-10-19T15:34:27.452+0200","errors":[{"scope":"G","error_code":304,"error_name":"PAYMENT_NOT_FOUND","message":"Payment
+      string: '{"date_issued":"2019-10-19T15:12:34.174+0200","errors":[{"scope":"G","error_code":304,"error_name":"PAYMENT_NOT_FOUND","message":"Payment
         not found."}]}'
     http_version: 
-  recorded_at: Sat, 19 Oct 2019 13:34:27 GMT
+  recorded_at: Sat, 19 Oct 2019 13:12:34 GMT
 recorded_with: VCR 5.0.0

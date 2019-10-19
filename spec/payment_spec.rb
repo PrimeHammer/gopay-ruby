@@ -1,11 +1,18 @@
 require 'spec_helper'
 
+GoPay.configure do |config|
+  config.gate = ENV['GOPAY_GATE']
+  config.goid = ENV['GOPAY_1_GOID']
+  config.client_id = ENV['GOPAY_1_CLIENT_ID']
+  config.client_secret =  ENV['GOPAY_1_CLIENT_SECRET']
+end
+
 describe GoPay::Payment, vcr: VCR_OPTIONS do
   subject { described_class }
 
   describe 'retrieve' do
     it 'returns existing payment' do
-      expect(subject.retrieve 3026370321).to include("id" => 3026370321)
+      expect(subject.retrieve 3090060402).to include("id" => 3090060402)
     end
 
     it 'returns gopay error when payment not found' do
@@ -13,10 +20,10 @@ describe GoPay::Payment, vcr: VCR_OPTIONS do
     end
   end
 
-  # find a new payment after you delete casette
   describe 'void_recurrence' do
+    # the payment has to be paid. Use gw_url to go to gateway and pay
     it 'returns existing payment' do
-      expect(subject.void_recurrence 3027321817).to include("id" => 3027321817)
+      expect(subject.void_recurrence 3090067123).to include("id" => 3090067123)
     end
 
     it 'returns gopay error when payment not found' do
@@ -24,10 +31,10 @@ describe GoPay::Payment, vcr: VCR_OPTIONS do
     end
   end
 
-  # find a new payment after you delete casette
   describe 'refund' do
+    # the payment has to be paid. Use gw_url to go to gateway and pay
     it 'returns existing payment' do
-      expect(subject.refund 3027334050, 46900).to include("id" => 3027334050)
+      expect(subject.refund 3090067162, 10000).to include("id" => 3090067162, "result" => "FINISHED")
     end
 
     it 'returns gopay error when payment not found' do
@@ -36,7 +43,7 @@ describe GoPay::Payment, vcr: VCR_OPTIONS do
   end
 
   describe 'create' do
-    let(:params) { { payer: { allowed_payment_instruments: ["BANK_ACCOUNT"],
+    let(:params) { { payer: { allowed_payment_instruments: ["PAYMENT_CARD"],
                               contact: { first_name: 'John',
                                           last_name: 'Doe',
                                           email: 'john@example.com' } },
@@ -47,7 +54,7 @@ describe GoPay::Payment, vcr: VCR_OPTIONS do
                      lang: 'CS',
                      callback: { return_url: 'http://localhost',
                                               notification_url: 'http://localhost/2' } } }
-    let(:recurrence_params) { { recurrence: { recurrence_cycle: 'WEEK', recurrence_period: 10, recurrence_date_to: '2018-01-01' } } }
+    let(:recurrence_params) { { recurrence: { recurrence_cycle: 'WEEK', recurrence_period: 10, recurrence_date_to: '2050-01-01' } } }
 
     it 'returns existing payment for standard payment' do
       expect(GoPay::Payment.create(params)).to include(
@@ -56,14 +63,13 @@ describe GoPay::Payment, vcr: VCR_OPTIONS do
         "amount" => 10000,
         "currency" => "CZK",
         "payer" => include(
-          "allowed_payment_instruments" => ["BANK_ACCOUNT"],
+          "allowed_payment_instruments" => ["PAYMENT_CARD"],
           "contact" => include(
             "first_name" => "John",
             "last_name" => "Doe",
             "email" => "john@example.com"
           )
         ),
-        "recurrence" => nil,
         "lang" => "cs"
       )
     end
@@ -75,7 +81,7 @@ describe GoPay::Payment, vcr: VCR_OPTIONS do
         "amount" => 10000,
         "currency" => "CZK",
         "payer" => include(
-          "allowed_payment_instruments" => ["BANK_ACCOUNT"],
+          "allowed_payment_instruments" => ["PAYMENT_CARD"],
           "contact" => include(
             "first_name" => "John",
             "last_name" => "Doe",
@@ -85,7 +91,7 @@ describe GoPay::Payment, vcr: VCR_OPTIONS do
         "recurrence" => {
           "recurrence_cycle" => "WEEK",
           "recurrence_period" => 10,
-          "recurrence_date_to" => "2018-01-01",
+          "recurrence_date_to" => "2050-01-01",
           "recurrence_state" => "REQUESTED"
         },
         "lang" => "cs"

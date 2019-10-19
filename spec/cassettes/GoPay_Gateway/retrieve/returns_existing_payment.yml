@@ -27,7 +27,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 19 Oct 2019 13:34:27 GMT
+      - Sat, 19 Oct 2019 13:12:33 GMT
       Server:
       - Apache
       Strict-Transport-Security:
@@ -47,17 +47,17 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Expires:
-      - Sat, 19 Oct 2019 13:44:27 GMT
+      - Sat, 19 Oct 2019 13:22:33 GMT
       Content-Length:
-      - '274'
+      - '272'
     body:
       encoding: ASCII-8BIT
-      string: '{"token_type":"bearer","access_token":"5Z06kRCPmdCKe7SsP3bvxocrLxBmq4jVX4I5YTUTPudYjcFP7uNbraE9DIsvkfuoWw8qCnJ4P8TjBMxy8t9WMh+r7QhbmN5W+KWjOK3VA68=","expires_in":1800,"refresh_token":"nyY8X3GO/DVp7AQFG1K07YFXjxOzozYLzha5tJ7QwMnvFm4gXJPThS2rYzXWvIQTj4Ku3O5WehPmp1RHtT9MN48F4pRoRfl/LmYVCIBYDO0="}'
+      string: '{"token_type":"bearer","access_token":"TXrkmyOJvZ8CQeoru8eIbuvwmrJ4TYGVNVq5JcLYCa47HhODPqk6tPkggCXIbqqkn8RrNz5lkRNZhDaZYfPKbuRXmAZBlgRlx4xvUaw/q68=","expires_in":1800,"refresh_token":"Fv9uD0bAyNjMEhI1gZer0SYwO3+dkURtInF4D07pyNljBmr0VwCtU0uDD5+3+Is/IuF9zOe0r59CWSmUzoAIi8BRAxyC7FTOC7YePiYgULc="}'
     http_version: 
-  recorded_at: Sat, 19 Oct 2019 13:34:27 GMT
+  recorded_at: Sat, 19 Oct 2019 13:12:33 GMT
 - request:
     method: get
-    uri: https://testgw.gopay.cz/api/payments/payment/100
+    uri: https://testgw.gopay.cz/api/payments/payment/3090060402
     body:
       encoding: US-ASCII
       string: ''
@@ -78,17 +78,17 @@ http_interactions:
       - testgw.gopay.cz
   response:
     status:
-      code: 404
-      message: Not Found
+      code: 200
+      message: OK
     headers:
       Date:
-      - Sat, 19 Oct 2019 13:34:27 GMT
+      - Sat, 19 Oct 2019 13:12:33 GMT
       Server:
       - Apache
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains; preload
       Cache-Control:
-      - no-cache, no-store, must-revalidate
+      - no-cache, no-store, must-revalidate, max-age=600
       X-Xss-Protection:
       - 1; mode=block
       X-Frame-Options:
@@ -97,14 +97,19 @@ http_interactions:
       - nosniff
       Content-Type:
       - application/json
-      Content-Length:
-      - '152'
       Set-Cookie:
       - "<SET COOKIE FILTERED OUT>"
+      Vary:
+      - Accept-Encoding
+      Expires:
+      - Sat, 19 Oct 2019 13:22:33 GMT
+      Content-Length:
+      - '402'
     body:
-      encoding: UTF-8
-      string: '{"date_issued":"2019-10-19T15:34:27.452+0200","errors":[{"scope":"G","error_code":304,"error_name":"PAYMENT_NOT_FOUND","message":"Payment
-        not found."}]}'
+      encoding: ASCII-8BIT
+      string: '{"id":3090060402,"order_number":"order-1","state":"REFUNDED","payment_instrument":"PAYMENT_CARD","amount":10000,"currency":"CZK","payer":{"allowed_payment_instruments":["PAYMENT_CARD"],"payment_card":{"card_number":"418803******0003","card_expiration":"2112","card_brand":"VISA
+        Electron","card_issuer_country":"CZE","card_issuer_bank":"KOMERCNI BANKA,
+        A.S."},"contact":{"first_name":"John","last_name":"Doe","email":"john@example.com","country_code":"CZE"}},"target":{"type":"ACCOUNT","goid":1111111111},"lang":"cs","gw_url":"https://gw.sandbox.gopay.com/gw/v3/95c24246256a19e1f4903d18a5cb9c31"}'
     http_version: 
-  recorded_at: Sat, 19 Oct 2019 13:34:27 GMT
+  recorded_at: Sat, 19 Oct 2019 13:12:33 GMT
 recorded_with: VCR 5.0.0
