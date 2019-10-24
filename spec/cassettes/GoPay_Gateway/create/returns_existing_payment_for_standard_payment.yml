@@ -5,7 +5,7 @@ http_interactions:
     uri: https://testgw.gopay.cz/api/oauth2/token
     body:
       encoding: UTF-8
-      string: grant_type=client_credentials&scope=payment-all
+      string: grant_type=client_credentials&scope=payment-create
     headers:
       Accept:
       - application/json
@@ -16,7 +16,7 @@ http_interactions:
       Authorization:
       - "<AUTHORIZATION FILTERED OUT>"
       Content-Length:
-      - '47'
+      - '50'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Host:
@@ -27,7 +27,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 19 Oct 2019 13:34:27 GMT
+      - Sat, 19 Oct 2019 13:27:21 GMT
       Server:
       - Apache
       Strict-Transport-Security:
@@ -47,48 +47,48 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Expires:
-      - Sat, 19 Oct 2019 13:44:27 GMT
+      - Sat, 19 Oct 2019 13:37:21 GMT
       Content-Length:
-      - '274'
+      - '271'
     body:
       encoding: ASCII-8BIT
-      string: '{"token_type":"bearer","access_token":"5Z06kRCPmdCKe7SsP3bvxocrLxBmq4jVX4I5YTUTPudYjcFP7uNbraE9DIsvkfuoWw8qCnJ4P8TjBMxy8t9WMh+r7QhbmN5W+KWjOK3VA68=","expires_in":1800,"refresh_token":"nyY8X3GO/DVp7AQFG1K07YFXjxOzozYLzha5tJ7QwMnvFm4gXJPThS2rYzXWvIQTj4Ku3O5WehPmp1RHtT9MN48F4pRoRfl/LmYVCIBYDO0="}'
+      string: '{"token_type":"bearer","access_token":"johO6hfbyH96q3xHZoaLaOaZ6fDeLZy2ovxUBppZJzu6A5Wpgb6Z4XXpvW57RvihisqyQnJf4C7QhXEZUT6LxI7Z/2Fiyr5wXwhfUhXlKNA=","expires_in":1800,"refresh_token":"BaeTjmEUR9eTSfejKvMmhXPiGVQQv90qcGTHmgyOmGWoB0LhN54ybcdk77r7b8gK3AEBawt00tOBe9YWRy4VXGXjl4pt/jpeZ0XTe4sprRY="}'
     http_version: 
-  recorded_at: Sat, 19 Oct 2019 13:34:27 GMT
+  recorded_at: Sat, 19 Oct 2019 13:27:21 GMT
 - request:
-    method: get
-    uri: https://testgw.gopay.cz/api/payments/payment/100
+    method: post
+    uri: https://testgw.gopay.cz/api/payments/payment
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: UTF-8
+      string: '{"payer":{"allowed_payment_instruments":["PAYMENT_CARD"],"contact":{"first_name":"John","last_name":"Doe","email":"john@example.com"}},"amount":10000,"currency":"CZK","order_number":"order-1","order_description":"foo","lang":"CS","callback":{"return_url":"http://localhost","notification_url":"http://localhost/2"},"target":{"type":"ACCOUNT","goid":"1111111111"}}'
     headers:
       Accept:
       - application/json
       User-Agent:
       - rest-client/2.1.0 (darwin17.7.0 x86_64) ruby/2.5.3p105
       Content-Type:
-      - application/x-www-form-urlencoded
+      - application/json
       Authorization:
       - "<AUTHORIZATION FILTERED OUT>"
       Content-Length:
-      - '0'
+      - '363'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Host:
       - testgw.gopay.cz
   response:
     status:
-      code: 404
-      message: Not Found
+      code: 200
+      message: OK
     headers:
       Date:
-      - Sat, 19 Oct 2019 13:34:27 GMT
+      - Sat, 19 Oct 2019 13:27:21 GMT
       Server:
       - Apache
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains; preload
       Cache-Control:
-      - no-cache, no-store, must-revalidate
+      - no-cache, no-store, must-revalidate, max-age=600
       X-Xss-Protection:
       - 1; mode=block
       X-Frame-Options:
@@ -97,14 +97,17 @@ http_interactions:
       - nosniff
       Content-Type:
       - application/json
-      Content-Length:
-      - '152'
       Set-Cookie:
       - "<SET COOKIE FILTERED OUT>"
+      Vary:
+      - Accept-Encoding
+      Expires:
+      - Sat, 19 Oct 2019 13:37:21 GMT
+      Content-Length:
+      - '291'
     body:
-      encoding: UTF-8
-      string: '{"date_issued":"2019-10-19T15:34:27.452+0200","errors":[{"scope":"G","error_code":304,"error_name":"PAYMENT_NOT_FOUND","message":"Payment
-        not found."}]}'
+      encoding: ASCII-8BIT
+      string: '{"id":3090066980,"order_number":"order-1","state":"CREATED","amount":10000,"currency":"CZK","payer":{"allowed_payment_instruments":["PAYMENT_CARD"],"contact":{"first_name":"John","last_name":"Doe","email":"john@example.com"}},"target":{"type":"ACCOUNT","goid":1111111111},"lang":"cs","gw_url":"https://gw.sandbox.gopay.com/gw/v3/583d98f8dfadbd7289fb49ab6da95d43"}'
     http_version: 
-  recorded_at: Sat, 19 Oct 2019 13:34:27 GMT
+  recorded_at: Sat, 19 Oct 2019 13:27:22 GMT
 recorded_with: VCR 5.0.0

@@ -2,34 +2,38 @@
 http_interactions:
 - request:
     method: post
-    uri: https://client_id_filtered:client_secret_filtered@testgw.gopay.cz/api/oauth2/token
+    uri: https://testgw.gopay.cz/api/oauth2/token
     body:
       encoding: UTF-8
       string: grant_type=client_credentials&scope=payment-all
     headers:
       Accept:
       - application/json
-      Accept-Encoding:
-      - gzip
+      User-Agent:
+      - rest-client/2.1.0 (darwin17.7.0 x86_64) ruby/2.5.3p105
       Content-Type:
       - application/x-www-form-urlencoded
-      User-Agent:
-      - unirest-ruby/1.1
+      Authorization:
+      - "<AUTHORIZATION FILTERED OUT>"
       Content-Length:
       - '47'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - testgw.gopay.cz
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 03 Mar 2016 14:22:00 GMT
+      - Sat, 19 Oct 2019 13:42:03 GMT
       Server:
-      - GOPAY
+      - Apache
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains; preload
-      X-Powered-By:
-      - GOPAY
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, max-age=600
       X-Xss-Protection:
       - 1; mode=block
       X-Frame-Options:
@@ -42,26 +46,15 @@ http_interactions:
       - "<SET COOKIE FILTERED OUT>"
       Vary:
       - Accept-Encoding
-      Content-Encoding:
-      - gzip
-      Cache-Control:
-      - max-age=600
       Expires:
-      - Thu, 03 Mar 2016 14:31:59 GMT
+      - Sat, 19 Oct 2019 13:52:03 GMT
       Content-Length:
       - '271'
     body:
       encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAAAz2OwW6CQBQA/2XPJixSrDTxAFLEKiBCULiQBZ+wYnHZRUBN
-        /72kh15nDjMv1N4qqNP2wQB9oAwIB44miOQ5CJH+yZErcckSu71Hh0KXFD8U
-        MKzavBz0Qwy2/s74Wyg2nSCneX/L6qVqXoPOCz1ZGHfZcPqovh4Nq5R7lxd+
-        /iDE1HDzVfBLsCI3ibtSFh122xA7ShIvxjoMjHIQKR3b8hzjCeJwHkH5P3Sx
-        N5JF+09dZ5W6n1uVUnhh24hEE569u0/pM5gm/o6G/T4/4qfb+TM6uFvAmg8s
-        0MiJt1ebqbPKyNa5CGQusE6c4lxTtdGy5XrLIHKlb2ESZ4F+fgEcAEhSJgEA
-        AA==
+      string: '{"token_type":"bearer","access_token":"cJUtqmBUHVvXhlpKt85kZgcg34HTUwh36XsBmD6ZnMspTeXV8AvzPbMYMRTEszdBmCP2Yx8sScl7zMoxPCD3h9zwmgr6lO0uvE96kBm3iJ0=","expires_in":1800,"refresh_token":"2lPGTyxOIxz12hrzv4lmBNukMLXIB6h/zhqL3JX97UdH/OzPD9h0tPR2b93Ksic6eUExX9s3PUZatjFpsmSYHVsPu04c1hHvCqaX+QBp3FA="}'
     http_version: 
-  recorded_at: Thu, 03 Mar 2016 14:21:59 GMT
+  recorded_at: Sat, 19 Oct 2019 13:42:03 GMT
 - request:
     method: post
     uri: https://testgw.gopay.cz/api/payments/payment/100/refund
@@ -71,29 +64,31 @@ http_interactions:
     headers:
       Accept:
       - application/json
-      Accept-Encoding:
-      - gzip
+      User-Agent:
+      - rest-client/2.1.0 (darwin17.7.0 x86_64) ruby/2.5.3p105
       Content-Type:
       - application/x-www-form-urlencoded
       Authorization:
       - "<AUTHORIZATION FILTERED OUT>"
-      User-Agent:
-      - unirest-ruby/1.1
       Content-Length:
       - '10'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - testgw.gopay.cz
   response:
     status:
-      code: 500
-      message: Internal Server Error
+      code: 409
+      message: Conflict
     headers:
       Date:
-      - Thu, 03 Mar 2016 14:22:00 GMT
+      - Sat, 19 Oct 2019 13:42:03 GMT
       Server:
-      - GOPAY
+      - Apache
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains; preload
-      X-Powered-By:
-      - GOPAY
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
       X-Xss-Protection:
       - 1; mode=block
       X-Frame-Options:
@@ -103,14 +98,13 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '153'
+      - '149'
       Set-Cookie:
       - "<SET COOKIE FILTERED OUT>"
-      Connection:
-      - close
     body:
       encoding: UTF-8
-      string: '{"date_issued":"2016-03-03T15:22:00.522+0100","errors":[{"scope":"G","field":null,"error_code":500,"error_name":null,"message":null,"description":null}]}'
+      string: '{"date_issued":"2019-10-19T15:42:03.905+0200","errors":[{"scope":"F","field":"id","error_code":111,"error_name":"INVALID","message":"Wrong
+        value."}]}'
     http_version: 
-  recorded_at: Thu, 03 Mar 2016 14:21:59 GMT
-recorded_with: VCR 3.0.1
+  recorded_at: Sat, 19 Oct 2019 13:42:03 GMT
+recorded_with: VCR 5.0.0

@@ -2,13 +2,13 @@
 
 [![Gem Version](https://badge.fury.io/rb/gopay-ruby.png)](http://badge.fury.io/rb/gopay-ruby)
 [![Build Status](https://travis-ci.org/PrimeHammer/gopay-ruby.png?branch=master)](https://travis-ci.org/PrimeHammer/gopay-ruby)
-[![Dependency Status](https://gemnasium.com/PrimeHammer/gopay-ruby.png)](https://gemnasium.com/PrimeHammer/gopay-ruby)
 [![Code Climate](https://codeclimate.com/github/PrimeHammer/gopay-ruby.png)](https://codeclimate.com/github/PrimeHammer/gopay-ruby)
+[![Coverage Status](https://coveralls.io/repos/github/PrimeHammer/gopay-ruby/badge.svg?branch=master)](https://coveralls.io/github/PrimeHammer/gopay-ruby?branch=master)
 
 The GoPay Ruby allows Ruby applications to access to the GoPay REST API.
 
 ## Benefits
-It does OAuth authorization under the hood automatically. Easy configuration through initializer.
+It does authorization under the hood automatically, supports multiple accounts. Easy configuration.
 
 ## Installation
 
@@ -27,33 +27,30 @@ Or install it yourself as:
 
     $ gem install gopay-ruby
 
-## Configure
-The Gem is framework agnostic. However, if you use Rails, put the initializer in Rails config dir:
-```ruby
-config/initializers/gopay.rb
-```
 
-```ruby
-GoPay.configure do |config|
-  config.goid = GOPAY_ID
-  config.client_id = GOPAY_CLIENT_ID
-  config.client_secret = GOPAY_SECRET
-  config.return_host = RETURN_HOST_URL
-  config.notification_host = NOTIFICATION_HOST_URL
-  config.gate = GATE_URL
-end
-```
 
 ## Usage
 
-### Create a Payment
-Before charging a user, we need to create a new payment. This will return a hash including a URL which you can use to popup payment modal or redirect the user to the GoPay payment page.
+### Gateway
+
+Before creating a payment, use Gateway object to configure your access to GoPay:
 
 ```ruby
-GoPay::Payment.create payment_data
+gateway = GoPay::Gateway.new(gate: 'https://testgw.gopay.cz', goid: 123, client_id: 456, client_secret: 'xxx')
 ```
 
-### payment_data example
+The values above are just examples. Note that you can use multiple Gateway objects to connect to different accounts. With one Gateway, you can do multiple requests.
+
+
+### Create a Payment
+
+Before charging a user, we need to create a new payment using our `gateway` object. The method will return a hash including a URL which you can use to popup payment modal or redirect the user to the GoPay payment page.
+
+```ruby
+gateway.create payment_data
+```
+
+#### payment_data example
 
 ```ruby
 {
@@ -77,7 +74,7 @@ GoPay::Payment.create payment_data
 }
 ```
 
-### Create a Payment response example
+#### Response example
 This is a basic example of response hash, for more complex examples visit [GoPay API docs](https://doc.gopay.com).
 ```ruby
 {
@@ -106,7 +103,7 @@ This is a basic example of response hash, for more complex examples visit [GoPay
 If you want to return a payment object from GoPay REST API.
 
 ```ruby
-GoPay::Payment.retrieve gopay_id
+gateway.retrieve gopay_id
 ```
 
 ### Refund of the payment
@@ -114,14 +111,14 @@ This functionality allows you to refund payment paid by a customer.
 You can use the refund in two ways. First option is a full refund payment and the other one is a partial refund. Both based on `amount` parameter.
 
 ```ruby
-GoPay::Payment.refund gopay_id, amount
+gateway.refund gopay_id, amount
 ```
 
 ### Cancellation of the recurring payment
 The functionality allows you to cancel recurrence of a previously created recurring payment.
 
 ```ruby
-GoPay::Payment.void_recurrence gopay_id
+gateway.void_recurrence gopay_id
 ```
 
 ## Dealing with errors
@@ -130,13 +127,78 @@ You can easily catch errors in your models as shown below.
 
 ```ruby
 begin
-  response = GoPay::Payment.refund(gopay_id, gopay_amount)
+  response = gateway.refund(gopay_id, gopay_amount)
 rescue GoPay::Error => exception
   log_gopay_error exception
 end
 ```
 
-## Documentation
+
+## Testing
+
+Use these env variables in `.env` file:
+
+```
+GOPAY_GATE='https://testgw.gopay.cz'
+
+GOPAY_1_GOID=1111111111
+GOPAY_1_CLIENT_ID=1
+GOPAY_1_CLIENT_SECRET=x
+
+GOPAY_2_GOID=2222222222
+GOPAY_2_CLIENT_ID=2
+GOPAY_2_CLIENT_SECRET=x
+```
+
+Then run:
+
+```ruby
+bundle exec rspec
+```
+
+
+### Upgrading 
+
+#### 0.4.0
+
+In short, using `GoPay` class and `GoPay::Payment` was deprecated.
+
+Using `GoPay.configure` and `GoPay.request` is discouraged in favor of `Gateway` object. Instead of this:
+
+```ruby
+GoPay.configure do |config|
+  config.goid = GOPAY_ID
+  config.client_id = GOPAY_CLIENT_ID
+  config.client_secret = GOPAY_SECRET
+  config.return_host = RETURN_HOST_URL
+  config.notification_host = NOTIFICATION_HOST_URL
+  config.gate = GATE_URL
+end
+```
+
+please use `Gateway` object:
+
+```ruby
+gateway = GoPay::Gateway.new(gate: GATE_URL, goid: GOPAY_ID, client_id: GOPAY_CLIENT_ID, client_secret: GOPAY_SECRET)
+```
+
+`return_host` and `notification_host` will be deprecated as well.
+
+Also `GoPay::Payment` will be deprecated. Instead of this:
+
+```ruby
+GoPay::Payment.retrieve gopay_id
+```
+
+use `Gateway` for creating payments, retrieval, refunds:
+
+```ruby
+gateway.retrieve gopay_id
+```
+
+
+
+## Full Documentation
 Parameters for all GoPay methods follow the official documentation. For further explanation please visit [GoPay API docs](https://doc.gopay.com).
 
 ## Contributing

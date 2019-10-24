@@ -2,34 +2,38 @@
 http_interactions:
 - request:
     method: post
-    uri: https://client_id_filtered:client_secret_filtered@testgw.gopay.cz/api/oauth2/token
+    uri: https://testgw.gopay.cz/api/oauth2/token
     body:
       encoding: UTF-8
       string: grant_type=client_credentials&scope=payment-create
     headers:
       Accept:
       - application/json
-      Accept-Encoding:
-      - gzip
+      User-Agent:
+      - rest-client/2.1.0 (darwin17.7.0 x86_64) ruby/2.5.3p105
       Content-Type:
       - application/x-www-form-urlencoded
-      User-Agent:
-      - unirest-ruby/1.1
+      Authorization:
+      - "<AUTHORIZATION FILTERED OUT>"
       Content-Length:
       - '50'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - testgw.gopay.cz
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 03 Mar 2016 16:17:02 GMT
+      - Sat, 19 Oct 2019 13:36:34 GMT
       Server:
-      - GOPAY
+      - Apache
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains; preload
-      X-Powered-By:
-      - GOPAY
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, max-age=600
       X-Xss-Protection:
       - 1; mode=block
       X-Frame-Options:
@@ -42,58 +46,49 @@ http_interactions:
       - "<SET COOKIE FILTERED OUT>"
       Vary:
       - Accept-Encoding
-      Content-Encoding:
-      - gzip
-      Cache-Control:
-      - max-age=600
       Expires:
-      - Thu, 03 Mar 2016 16:27:02 GMT
+      - Sat, 19 Oct 2019 13:46:34 GMT
       Content-Length:
       - '271'
     body:
       encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAAAz2OwW6CMABA/6VXTKC4KCzxgHNrVQQRujkvpsMK1QmlFCqY
-        /fvIDru+d3jvAVR5ZcVRdYKBZ/DFqGQSjABNU1bXxz858G0Mlbe8re7oHeps
-        LHvuJEGkgzuNIHSf9nxR7DAUF7NE+6pv1oQUn4UMohLGpspwm/i2R0LBmfWa
-        CbM6aa5XRoI3ltjpfaWqpr2EHzrsJ4TMhjq7Cy5ZfeRDGzqWNQKSnQeQ/w9p
-        dy43Z8+oDc/BL87UmOhxL6yOmBoaSditES0aCrdpYpzcKJvfdm2+qnEz8XNG
-        kR8XOcJ8vKjlPIyVT6eHDi4tGr3JK0ZXhcWN2J5G9qH5Tmfg5xcifkKuJgEA
-        AA==
+      string: '{"token_type":"bearer","access_token":"dZssp3tYRRKoN5N0jHPWXHsPaFaOZkkSoKLp93pcdVDR+oJlqQVoPYEgE57WxpU2mc7ELITxC+AE0hNZTZICIoH6pmvTc6IRI/+S0SpjZ1U=","expires_in":1800,"refresh_token":"jnu2jFHJ5aUs/mE78ohZ8DStix7NMo16dl8+SyRFl/AIe1+EOo5Dly9ZrfNtIS2GCLtl1hTETzWGO2eDYMKdYYKiP0xFfizuUj7YWzBIGFU="}'
     http_version: 
-  recorded_at: Thu, 03 Mar 2016 16:17:00 GMT
+  recorded_at: Sat, 19 Oct 2019 13:36:34 GMT
 - request:
     method: post
     uri: https://testgw.gopay.cz/api/payments/payment
     body:
       encoding: UTF-8
-      string: '{"payer":{"allowed_payment_instruments":["BANK_ACCOUNT"],"contact":{"first_name":"John","last_name":"Doe","email":"john@example.com"}},"amount":10000,"currency":"CZK","order_number":"order-1","order_description":"foo","lang":"CS","callback":{"return_url":"http://localhost","notification_url":"http://localhost/2"},"target":{"type":"ACCOUNT","goid":"8431713532"}}'
+      string: '{"payer":{"allowed_payment_instruments":["PAYMENT_CARD"],"contact":{"first_name":"John","last_name":"Doe","email":"john@example.com"}},"amount":10000,"currency":"CZK","order_number":"order-1","order_description":"foo","lang":"CS","callback":{"return_url":"http://localhost","notification_url":"http://localhost/2"},"target":{"type":"ACCOUNT","goid":"1111111111"}}'
     headers:
       Accept:
       - application/json
-      Accept-Encoding:
-      - gzip
+      User-Agent:
+      - rest-client/2.1.0 (darwin17.7.0 x86_64) ruby/2.5.3p105
       Content-Type:
       - application/json
       Authorization:
       - "<AUTHORIZATION FILTERED OUT>"
-      User-Agent:
-      - unirest-ruby/1.1
       Content-Length:
       - '363'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - testgw.gopay.cz
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 03 Mar 2016 16:17:02 GMT
+      - Sat, 19 Oct 2019 13:36:34 GMT
       Server:
-      - GOPAY
+      - Apache
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains; preload
-      X-Powered-By:
-      - GOPAY
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, max-age=600
       X-Xss-Protection:
       - 1; mode=block
       X-Frame-Options:
@@ -106,27 +101,13 @@ http_interactions:
       - "<SET COOKIE FILTERED OUT>"
       Vary:
       - Accept-Encoding
-      Content-Encoding:
-      - gzip
-      Cache-Control:
-      - max-age=600
       Expires:
-      - Thu, 03 Mar 2016 16:27:02 GMT
+      - Sat, 19 Oct 2019 13:46:34 GMT
       Content-Length:
-      - '430'
+      - '291'
     body:
       encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAAA61STW/bMAz9Lzx7SfxRZ8lpWdrLCnTA0F02FAIt0Y43WTJk
-        aalX5L9PimM76Iqd5pP4TD4+PvIFagHbdJWs8yy7ifMIWjSkLAuwclJGoI0g
-        w5RrCjKwHcJ3MUTQWbTkkf2Xu93j3W1AXMEu6FDbYt+c2VRnjQvP8Q822oUo
-        XvkvAu6Mb8v7QPftHs6Vod3Lvyik1EcS7O+MDrbf4ePu4Z7t9vvPXx8e4WlO
-        7451GTIGEkElOmnfIHmdca4bwUrPBlGDtZwmPmhFk1sDVqD6yZDzYeIB80Gr
-        1WufOBoxZyiL3AYPytp0lilsgt2f9EF5gyTO0K0mmHTAD5/wgZ6xaSUtuG7g
-        bVW8tv349jMTTdpa7ZcoGdeCruQqa/or7HSKwKKp6KzQ9m0QMto9GvQ+S+N1
-        nN6kyX+xaTyaIRq6Xzbp1Ri6XNF8fobQ2YM29W+09RWPEHWI/ZD+3LGZrkGi
-        qvwYvAsTHJkzwc+DtW23XS6r46JDJQr9vKi031jw1oPLX+kyx1zkK87XeZol
-        nGdlUsa0SZNNnKebFRZw+gO9/0sBaQMAAA==
+      string: '{"id":3090067162,"order_number":"order-1","state":"CREATED","amount":10000,"currency":"CZK","payer":{"allowed_payment_instruments":["PAYMENT_CARD"],"contact":{"first_name":"John","last_name":"Doe","email":"john@example.com"}},"target":{"type":"ACCOUNT","goid":1111111111},"lang":"cs","gw_url":"https://gw.sandbox.gopay.com/gw/v3/5fb682873581cc28c8dbb62f7cd1296d"}'
     http_version: 
-  recorded_at: Thu, 03 Mar 2016 16:17:01 GMT
-recorded_with: VCR 3.0.1
+  recorded_at: Sat, 19 Oct 2019 13:36:34 GMT
+recorded_with: VCR 5.0.0
