@@ -9,9 +9,7 @@ module GoPay
     def request(method, path, body_parameters: {})
       token = token get_token_scope(method, path)
       content_type = get_content_type(path)
-
-      body_parameters = content_type == 'application/json' ? body_parameters.to_json : from_hash_to_query(body_parameters)
-
+      body_parameters = content_type == 'application/json' ? body_parameters.to_json : body_parameters
       begin
         response = RestClient::Request.execute(method: method, url: @config[:gate]+path, payload: body_parameters, headers: { "Accept" => "application/json", "Content-Type" => content_type, "Authorization" => "Bearer #{token}" })
       rescue RestClient::ExceptionWithResponse => e
@@ -58,10 +56,6 @@ module GoPay
         })
       JSON.parse(response.body)["access_token"]
     end
-
-    def from_hash_to_query(hash)
-      hash = hash == "{}" ? "{}" : URI.escape(hash.collect { |key,val| "#{CGI.escape(key.to_s)}=#{CGI.escape(val.to_s)}" }.join('&'))
-      return hash
-    end
+   
   end
 end
