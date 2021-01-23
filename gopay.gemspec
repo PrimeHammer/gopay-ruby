@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Unofficial wrapper for GoPay REST API}
   spec.description   = %q{Unofficial wrapper for GoPay REST API}
   spec.homepage      = "https://github.com/PrimeHammer/gopay-ruby"
-  spec.required_ruby_version = '>= 2.4'
+  spec.required_ruby_version = '>= 2.5'
   spec.license       = "MIT"
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
