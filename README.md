@@ -1,7 +1,7 @@
 # gopay-ruby
 
 [![Gem Version](https://badge.fury.io/rb/gopay-ruby.png)](http://badge.fury.io/rb/gopay-ruby)
-[![Build Status](https://travis-ci.org/PrimeHammer/gopay-ruby.png?branch=master)](https://travis-ci.org/PrimeHammer/gopay-ruby)
+[![Build Status](https://travis-ci.org/PrimeHammer/gopay-ruby.png?branch=master)](https://travis-ci.com/PrimeHammer/gopay-ruby)
 [![Code Climate](https://codeclimate.com/github/PrimeHammer/gopay-ruby.png)](https://codeclimate.com/github/PrimeHammer/gopay-ruby)
 [![Coverage Status](https://coveralls.io/repos/github/PrimeHammer/gopay-ruby/badge.svg?branch=master)](https://coveralls.io/github/PrimeHammer/gopay-ruby?branch=master)
 
